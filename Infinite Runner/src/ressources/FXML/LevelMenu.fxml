@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<GridPane prefHeight="400.0" prefWidth="600.0" styleClass="main" stylesheets="@stylesheets/Global.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+  <fx:define>
+        <Integer fx:id="firstIndex" fx:value="-1" />
+  </fx:define> 
+  <columnConstraints>
+      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="213.0" minWidth="10.0" percentWidth="30.0" prefWidth="213.0" />
+    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="368.0" minWidth="10.0" percentWidth="30.0" prefWidth="138.0" />
+    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" percentWidth="40.0" prefWidth="302.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="143.0" minHeight="10.0" prefHeight="112.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="208.0" minHeight="0.0" prefHeight="57.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="208.0" minHeight="0.0" prefHeight="53.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="208.0" minHeight="10.0" prefHeight="64.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="208.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="101.0" minHeight="10.0" prefHeight="79.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="101.0" minHeight="10.0" prefHeight="79.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <ListView fx:id="levels" items="${controller.levelModel.levels}" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowSpan="6" />
+      <Label prefHeight="91.0" prefWidth="211.0" styleClass="title" text="Choix du niveau" GridPane.columnSpan="2">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" contentDisplay="TOP" prefHeight="21.0" prefWidth="364.0" styleClass="descriptor" text="Nom :" visible="${!levels.selectionModel.selectedIndex == firstIndex}" GridPane.rowIndex="1">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="myLevel" minWidth="100.0" prefHeight="26.0" prefWidth="100.0" visible="${!levels.selectionModel.selectedIndex == firstIndex}" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets left="10.0" right="20.0" />
+         </GridPane.margin></TextField>
+      <Label alignment="CENTER_RIGHT" contentDisplay="TOP" prefHeight="21.0" prefWidth="484.0" visible="${!levels.selectionModel.selectedIndex == firstIndex}" styleClass="descriptor" text="Densité d'obstacles :" textAlignment="CENTER"  GridPane.rowIndex="2">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <HBox alignment="CENTER_LEFT" prefHeight="42.0" prefWidth="226.0" spacing="8.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <children>
+            <VBox alignment="CENTER" prefHeight="42.0" prefWidth="144.0">
+               <children>
+                  <Slider fx:id="mySlider" minorTickCount="1" prefHeight="16.0" prefWidth="137.0" visible="${!levels.selectionModel.selectedIndex == firstIndex}">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Slider>
+                  <Label fx:id="labelDensity" contentDisplay="CENTER" prefHeight="17.0" prefWidth="98.0" text="Label" textFill="#77cfff" visible="${!levels.selectionModel.selectedIndex == firstIndex}" />
+               </children>
+            </VBox>
+            <TextField fx:id="fieldDensity" prefHeight="31.0" prefWidth="64.0" visible="${!levels.selectionModel.selectedIndex == firstIndex}">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font></TextField>
+            
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </HBox>
+      <Label alignment="CENTER_RIGHT" contentDisplay="TOP" prefHeight="21.0" prefWidth="433.0" styleClass="descriptor" text="Thème :" visible="${!levels.selectionModel.selectedIndex == firstIndex}" GridPane.rowIndex="3">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="themePicker" items="${controller.themesModel.themes}" prefWidth="150.0" visible="${!levels.selectionModel.selectedIndex == firstIndex}" GridPane.columnIndex="1" GridPane.rowIndex="3">
+         <GridPane.margin>
+            <Insets left="10.0" right="20.0" />
+         </GridPane.margin>
+      </ChoiceBox>
+      <Button disable="${levels.selectionModel.selectedIndex == firstIndex}" mnemonicParsing="false" onAction="#onClickSupprimer" text="Supprimer" GridPane.rowIndex="5" />
+      <Button mnemonicParsing="false" onAction="#onClickAjouter" text="Ajouter" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+      <Button disable="${levels.selectionModel.selectedIndex == firstIndex}" mnemonicParsing="false" onAction="#onClickValider" prefHeight="25.0" prefWidth="414.0" text="Valider" GridPane.columnSpan="3" GridPane.rowIndex="6" />
+      
+   </children>
+</GridPane>

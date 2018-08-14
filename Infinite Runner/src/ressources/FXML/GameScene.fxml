@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane fx:id="mainPane"  minHeight="506.0" minWidth="900" onKeyPressed="#keyPressedListener" onKeyReleased="#keyReleasedListener"  prefHeight="506.0" prefWidth="900.0" styleClass="main" stylesheets="@stylesheets/Global.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+  <columnConstraints>
+    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="33.0" prefWidth="100.0" />
+    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="33.0" prefWidth="100.0" />
+      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="33.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="265.0" minHeight="10.0" prefHeight="83.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="378.0" minHeight="10.0" prefHeight="346.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="82.0" minHeight="10.0" prefHeight="69.0" valignment="TOP" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <Canvas fx:id="gameCanvas" height="600.0" width="1080.0" GridPane.columnSpan="3" GridPane.rowSpan="3" />
+      <GridPane>
+        <columnConstraints>
+          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label prefHeight="32.0" prefWidth="127.0" styleClass="title" text="Joueur :" textFill="#f2d602">
+               <font>
+                  <Font name="Candara Bold" size="26.0" />
+               </font>
+            </Label>
+            <Label fx:id="playerLabel" prefHeight="55.0" prefWidth="158.0" textFill="#f2d602" GridPane.columnIndex="1">
+               <font>
+                  <Font name="Candara Bold" size="26.0" />
+               </font>
+            </Label>
+         </children>
+      </GridPane>
+      <GridPane GridPane.columnIndex="1">
+         <columnConstraints>
+            <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label alignment="CENTER_RIGHT" prefHeight="32.0" prefWidth="127.0" styleClass="title" text="Vies :" textFill="#f2d602">
+               <font>
+                  <Font name="Candara Bold" size="26.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets right="20.0" />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="healthLabel" prefHeight="55.0" prefWidth="158.0" textFill="#f2d602" GridPane.columnIndex="1">
+               <font>
+                  <Font name="Candara Bold" size="26.0" />
+               </font>
+            </Label>
+         </children>
+      </GridPane>
+      <GridPane GridPane.columnIndex="2">
+         <columnConstraints>
+            <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label prefHeight="32.0" prefWidth="127.0" styleClass="title" text="Score" textFill="#f2d602">
+               <font>
+                  <Font name="Candara Bold" size="26.0" />
+               </font>
+            </Label>
+            <Label fx:id="scoreLabel" prefHeight="55.0" prefWidth="158.0" textFill="#f2d602" GridPane.columnIndex="1">
+               <font>
+                  <Font name="Candara Bold" size="26.0" />
+               </font>
+            </Label>
+         </children>
+      </GridPane>
+      <Button fx:id="pauseButton" alignment="CENTER" mnemonicParsing="false" onAction="#onPressedPause" prefHeight="39.0" prefWidth="107.0" text="PAUSE" GridPane.columnIndex="2" GridPane.rowIndex="2">
+         <GridPane.margin>
+            <Insets left="50.0" />
+         </GridPane.margin>
+      </Button>
+      <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="35.0" prefWidth="334.0" styleClass="title" text="Contrôles :" textFill="#f2d602" GridPane.rowIndex="2">
+         <font>
+            <Font name="Candara" size="34.0" />
+         </font>
+      </Label>
+      <Label prefHeight="35.0" prefWidth="271.0" styleClass="title" text="🡸 🡺 🡹 🡻" textFill="#f2d602" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <font>
+            <Font name="Candara" size="40.0" />
+         </font>
+      </Label>
+   </children>
+</GridPane>

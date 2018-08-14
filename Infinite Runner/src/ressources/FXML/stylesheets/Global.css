@@ -1,0 +1,22 @@
+.main {
+    -fx-background-color: #1d1d1d;
+    
+    
+}
+
+.title{
+    -fx-text-fill: #009999;
+}
+
+
+.button{
+    -fx-background-color: #009999;
+    -fx-text-fill: #eeeeee;
+    -fx-font: 18px "System";
+}
+
+.descriptor{
+    
+    -fx-text-fill: #eeeeee;
+    -fx-font: 15px "System";
+}
